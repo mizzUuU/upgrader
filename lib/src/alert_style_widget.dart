@@ -46,23 +46,20 @@ class AlertStyleWidget extends StatelessWidget {
     final children = <Widget>[];
     const semanticLabel = 'semanticLabel';
     const EdgeInsetsGeometry? titlePadding = null;
-    const EdgeInsetsGeometry contentPadding =
-        EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
+    const EdgeInsetsGeometry contentPadding = EdgeInsets.fromLTRB(24.0, 20.0, 24.0, 24.0);
 
     var label = semanticLabel;
 
     if (title != null) {
       children.add(Padding(
-        padding:
-            titlePadding ?? const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
+        padding: titlePadding ?? const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 0.0),
         child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.headline6!,
+          style: Theme.of(context).textTheme.titleLarge!,
           child: Semantics(namesRoute: true, child: title),
         ),
       ));
     } else {
-      if (defaultTargetPlatform == TargetPlatform.android ||
-          defaultTargetPlatform == TargetPlatform.fuchsia) {
+      if (defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.fuchsia) {
         label = MaterialLocalizations.of(context).alertDialogLabel;
       }
     }
@@ -71,7 +68,7 @@ class AlertStyleWidget extends StatelessWidget {
       child: Padding(
         padding: contentPadding,
         child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.subtitle1!,
+          style: Theme.of(context).textTheme.titleMedium!,
           child: content,
         ),
       ),
